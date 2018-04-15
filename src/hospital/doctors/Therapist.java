@@ -11,7 +11,7 @@ public class Therapist extends Doctor {
 
     @Override
     public void Treat(String illness) {
-        System.out.println(this.getClass().getSimpleName() + this.getName()+" has treated " + illness);
+        System.out.println(this.getClass().getSimpleName()+ " " + this.getName()+" has treated " + illness);
 
     }
 

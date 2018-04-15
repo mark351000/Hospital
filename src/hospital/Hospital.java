@@ -13,13 +13,8 @@ public class Hospital {
         hospital.makeTimeTables();
         hospital.setDonations();
 
-     //   System.out.println(hospital.donations);
-      //  System.out.println(hospital.HospitalDoctors.get(1).getRozklad());
-
         Terminal terminal = new Terminal(hospital);
         terminal.Velcome();
-
-
     }
 
     private  void makeDoctors(){
