@@ -5,7 +5,7 @@ public class Traumatologist extends Doctor {
         super(name);
     }
 
-    public Traumatologist(String name, String age) {
+    public Traumatologist(String name, int age) {
         super(name, age);
     }
 

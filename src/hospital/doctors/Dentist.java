@@ -5,7 +5,7 @@ public class Dentist extends Doctor {
         super(name);
     }
 
-    public Dentist(String name, String age) {
+    public Dentist(String name, int age) {
         super(name, age);
     }
 

@@ -4,7 +4,7 @@ import hospital.Rozklad;
 
 public abstract class Doctor {
     private String name;
-    private String age;
+    private int age;
     private Rozklad rozklad;
 
     public abstract void Treat(String illness);
@@ -12,11 +12,13 @@ public abstract class Doctor {
 
     public Doctor(String name) {
         this.name = name;
+        this.rozklad = new Rozklad();
     }
 
-    public Doctor(String name, String age) {
+    public Doctor(String name, int age) {
         this.name = name;
         this.age = age;
+        this.rozklad= new Rozklad();
     }
 
     public String getName() {
@@ -27,11 +29,11 @@ public abstract class Doctor {
         this.name = name;
     }
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
