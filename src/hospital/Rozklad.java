@@ -39,7 +39,7 @@ public class Rozklad {
     }
     public void setVisitInTimeTable(String surname, int day, int hour){
         String goodSurname = surname;
-        for (int i = surname.length(); i < 11; i++ ) {
+        for (int i = surname.length(); i < 10; i++ ) {
             if (i%2!=0)goodSurname+=" ";
             else goodSurname = " " + goodSurname;
         }

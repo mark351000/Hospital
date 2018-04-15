@@ -99,9 +99,9 @@ public class Terminal {
         String surname;
         Integer day, hour;
         try {
-            System.out.println("Enter your surname (no more 11 symbols)");
+            System.out.println("Enter your surname (no more 10 symbols)");
             surname = bufferedReader.readLine();
-            if (surname.length()>11) throw new Exception();
+            if (surname.length()>10) throw new Exception();
             System.out.println("Please choose the day\n 1 Monday, 2 Tuesday, 3 Wednesday, 4 Thursday, 5 Friday, 6 Saturday, 7 Sunday");
             day = Integer.valueOf(bufferedReader.readLine());
             System.out.println("Please choose the hour\n 1 8.00-9.00, 2 9.00-10.00, 3 10.00-11.00, 4 11.00-12.00, 5 12.00-13.00, 6 13.00-14.00, 7 14.00-15.00, 8 15.00-16.00, 9 16.00-17.00, 10 17.00-18.00 ");
