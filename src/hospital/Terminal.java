@@ -17,12 +17,12 @@ public class Terminal {
 
     public void Velcome() {
 
-        System.out.println("Hello. It is hospital's terminal. ");
+        System.out.println("Hello. It is hospital's terminal.\nYou can visit doctor now or set time-slot on the next week");
         choice();
 
     }
 
-     public void choice(){
+    public void choice(){
          System.out.println(" Press 1 - visit doctor " +
                  "\n Press 2 - sign up for a doctor's appointment " +
                  "\n Press 3 - doctors timetable" +
@@ -47,42 +47,49 @@ public class Terminal {
                     case 5:
                         break;
                     default: throw new ClassCastException();
-
-                }
-
-        }catch (Exception e){
-            System.out.println("Incorrect data. Try again.");
-            this.choice();
-        }
+                    }
+                    }catch (Exception e){
+                System.out.println("Incorrect data. Try again.");
+                this.choice();
+            }
     }
-    public void makeDonation(){
-        System.out.println("Enter the amount");
 
+    public void makeDonation(){
+        System.out.println("Enter the amount (usd)");
         try {
             String donetion = bufferedReader.readLine();
             ownerHospital.addDonations(Double.valueOf(donetion));
-            System.out.println("Thank you for the donation " + Double.valueOf(donetion));
+            System.out.println("Thank you for the donation " + Double.valueOf(donetion)+ " usd. " + "Total amount " + String.format("%(.2f", ownerHospital.getDonations())+ " usd");
         }catch (Exception e){
             System.out.println("Incorrect data. Try again.");
             this.makeDonation();
         }
-
         this.choice();
-
     }
+
     public void watchDoctorTimetable(){
         System.out.println(choiceDoctor().getRozklad());
         choice();
-
     }
 
     public void visitDoctor(){
         Doctor chosenDoctor = choiceDoctor();
-        System.out.println("Enter your illness");
+        String illness;
+        System.out.println("Did you know your illness?\n 1 Yes, 2 No");
         try {
-            chosenDoctor.Treat(bufferedReader.readLine());
+            String answer = bufferedReader.readLine();
+            if (Integer.valueOf(answer)==1){
+                System.out.println("Enter your illness");
+                chosenDoctor.Treat(bufferedReader.readLine());
+            } else if (Integer.valueOf(answer)==2){
+                illness = chosenDoctor.Diagnostics();
+                System.out.println("You had " + illness);
+                if (!illness.equals("You are healthy")) chosenDoctor.Treat(illness);
+            } else throw new IOException();
+
         } catch (IOException e) {
             System.out.println("Incorrect data. Try again.");
+            this.visitDoctor();
         }
         this.choice();
     }
@@ -92,9 +99,9 @@ public class Terminal {
         String surname;
         Integer day, hour;
         try {
-            System.out.println("Enter your surname (no more 10 symbols)");
+            System.out.println("Enter your surname (no more 11 symbols)");
             surname = bufferedReader.readLine();
-            if (surname.length()>10) throw new Exception();
+            if (surname.length()>11) throw new Exception();
             System.out.println("Please choose the day\n 1 Monday, 2 Tuesday, 3 Wednesday, 4 Thursday, 5 Friday, 6 Saturday, 7 Sunday");
             day = Integer.valueOf(bufferedReader.readLine());
             System.out.println("Please choose the hour\n 1 8.00-9.00, 2 9.00-10.00, 3 10.00-11.00, 4 11.00-12.00, 5 12.00-13.00, 6 13.00-14.00, 7 14.00-15.00, 8 15.00-16.00, 9 16.00-17.00, 10 17.00-18.00 ");
@@ -108,12 +115,11 @@ public class Terminal {
             this.setVisitToDoctor();
         }
         this.choice();
-
     }
 
     public Doctor choiceDoctor(){
         Doctor chosenDoctor = null;
-        System.out.println("Doctors");
+        System.out.println("Choose a doctor");
         for (int i =0; i<ownerHospital.getHospitalDoctors().size(); i++){
             System.out.println(i+" "+ownerHospital.getHospitalDoctors().get(i).getClass().getSimpleName() + " " + ownerHospital.getHospitalDoctors().get(i).getName());
         }
@@ -122,9 +128,8 @@ public class Terminal {
             chosenDoctor = ownerHospital.getHospitalDoctors().get(Integer.valueOf(bufferedReader.readLine()));
         }catch (Exception e){
             System.out.println("Incorrect data. Try again.");
-            this.choiceDoctor();
+            return this.choiceDoctor();
         }
         return  chosenDoctor;
     }
-
 }

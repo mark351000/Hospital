@@ -17,6 +17,8 @@ public class Surgeon extends Doctor {
 
     @Override
     public String Diagnostics() {
+        int chance =(int) (Math.random()*100);
+        if (chance>50) return "appendicitis";
         return "You are healthy";
     }
 }

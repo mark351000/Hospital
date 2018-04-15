@@ -38,9 +38,12 @@ public class Rozklad {
         TimeTable = timeTable;
     }
     public void setVisitInTimeTable(String surname, int day, int hour){
-        String goodSurbame = surname;
-        for (int i = surname.length(); i < 10; i++ ) goodSurbame+=" ";
-        this.getTimeTable()[hour][day] = goodSurbame;
+        String goodSurname = surname;
+        for (int i = surname.length(); i < 11; i++ ) {
+            if (i%2!=0)goodSurname+=" ";
+            else goodSurname = " " + goodSurname;
+        }
+        this.getTimeTable()[hour][day] = goodSurname;
     }
 
     @Override
