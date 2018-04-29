@@ -1,7 +1,6 @@
-package hospital;
+package main.java.hospital;
 
-import hospital.doctors.*;
-
+import main.java.hospital.doctors.*;
 import java.util.ArrayList;
 
 public class Hospital {

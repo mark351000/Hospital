@@ -1,11 +1,11 @@
-package hospital.doctors;
+package main.java.hospital.doctors;
 
-public class Traumatologist extends Doctor {
-    public Traumatologist(String name) {
+public class Surgeon extends Doctor {
+    public Surgeon(String name) {
         super(name);
     }
 
-    public Traumatologist(String name, int age) {
+    public Surgeon(String name, int age) {
         super(name, age);
     }
 
@@ -18,7 +18,7 @@ public class Traumatologist extends Doctor {
     @Override
     public String Diagnostics() {
         int chance =(int) (Math.random()*100);
-        if (chance>50) return "fracture of the hand";
+        if (chance>50) return "appendicitis";
         return "You are healthy";
     }
 }

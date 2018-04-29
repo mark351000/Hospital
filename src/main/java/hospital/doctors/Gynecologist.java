@@ -1,4 +1,4 @@
-package hospital.doctors;
+package main.java.hospital.doctors;
 
 public class Gynecologist extends Doctor {
     public Gynecologist(String name) {

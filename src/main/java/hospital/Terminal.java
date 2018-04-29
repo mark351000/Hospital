@@ -1,6 +1,6 @@
-package hospital;
+package main.java.hospital;
 
-import hospital.doctors.Doctor;
+import main.java.hospital.doctors.Doctor;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -22,7 +22,7 @@ public class Terminal {
 
     }
 
-    public void choice(){
+    private void choice(){
          System.out.println(" Press 1 - visit doctor " +
                  "\n Press 2 - sign up for a doctor's appointment " +
                  "\n Press 3 - doctors timetable" +
@@ -54,7 +54,7 @@ public class Terminal {
             }
     }
 
-    public void makeDonation(){
+    private void makeDonation(){
         System.out.println("Enter the amount (usd)");
         try {
             String donetion = bufferedReader.readLine();
@@ -67,12 +67,12 @@ public class Terminal {
         this.choice();
     }
 
-    public void watchDoctorTimetable(){
+    private void watchDoctorTimetable(){
         System.out.println(choiceDoctor().getRozklad());
         choice();
     }
 
-    public void visitDoctor(){
+    private void visitDoctor(){
         Doctor chosenDoctor = choiceDoctor();
         String illness;
         System.out.println("Did you know your illness?\n 1 Yes, 2 No");
@@ -94,7 +94,7 @@ public class Terminal {
         this.choice();
     }
 
-    public  void setVisitToDoctor(){
+    private   void setVisitToDoctor(){
         Doctor chosenDoctor = choiceDoctor();
         String surname;
         Integer day, hour;
@@ -117,7 +117,7 @@ public class Terminal {
         this.choice();
     }
 
-    public Doctor choiceDoctor(){
+    private Doctor choiceDoctor(){
         Doctor chosenDoctor = null;
         System.out.println("Choose a doctor");
         for (int i =0; i<ownerHospital.getHospitalDoctors().size(); i++){

@@ -1,6 +1,6 @@
-package hospital.doctors;
+package main.java.hospital.doctors;
 
-import hospital.Rozklad;
+import main.java.hospital.Rozklad;
 
 public abstract class Doctor {
     private String name;

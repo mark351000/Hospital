@@ -1,4 +1,4 @@
-package hospital;
+package main.java.hospital;
 
 
 public class Rozklad {
